@@ -338,7 +338,7 @@ class LineClient(object):
 
         self._client    = CurveThrift.Client(self.protocol)
         self._client_in = CurveThrift.Client(self.protocol_in)
-
+        
         self.transport.open()
         self.transport_in.open()
 
@@ -371,7 +371,7 @@ class LineClient(object):
         self._headers['X-Line-Access'] = msg.verifier
         self._pinCode = msg.pinCode
 
-        print "Enter PinCode '%s' to your mobile phone in 2 minutes"\
+        print ("Enter PinCode '%s' to your mobile phone in 2 minutes")\
                 % self._pinCode
 
         j = self.get_json(self.LINE_CERTIFICATE_URL)
